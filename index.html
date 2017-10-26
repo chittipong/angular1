@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="bootstrap337/css/bootstrap.min.css">
 </head>
 <body>
-<div class="contrainer">
+<div class="container">
+<div class="content">
 <div ng-app="" ng-init="price=100;qty=5;namesArr=['name 01','name 02','name 03'];namesObj=[
     {'name':'Chittipong','country':'Thailand','salary':450000},
     {'name':'Adisorn','country':'USA','salary':34000},
@@ -26,15 +27,30 @@
     <li class="list-group-item">{{n}}</li>
 </ul>
 
-<h3>3.Looping Data in Object Array (ng-repeat) and Fiter</h3>
+<h3>3.Looping Data in Object Array (ng-repeat) and Fiter and Sorting</h3>
 <input type="text" class="form-control" ng-model="queryString" placeholder="Fiter by">
+<p>Filter by:{{queryString}}</p>
+
+<input type="radio" value="name" ng-model="sortString"> Sorted by name(ASC)
+<input type="radio" value="-name" ng-model="sortString"> Sorted by name(DESC)
+<input type="radio" value="country" ng-model="sortString"> Sorted by countryz(ASC)
+<p>Sorting By: {{sortString}}</p>
+<div class="row">
 <table class="table">
-    <tr ng-repeat="n in namesObj | filter:queryString">
+    <tr ng-repeat="n in namesObj | filter:queryString | orderBy:sortString">
         <td>{{n.name}}</td>
         <td>{{n.country}}</td>
-        <td>{{n.salary}}</td>
+        <td>{{n.salary | currency:'THB '}}</td>
     </tr>
 </table>
+</div>
+<hr>
+<h3>Tips</h3>
+<p>*การ Filter เฉพาะคอลัมภ์ให้กำหนดเพิ่มเช่น ng-model="queryString.name"  ถ้าใส่แค่ queryString จะเป็นการค้นหาทุกคอลัมภ์ เป็นต้น</p>
+<p>*การแสดงค่าเงิน n.salary | currency </p>
+<p>*การแสดงค่าเงินบาท n.salary | currency:'THB ' </p>
+<p>*การ Sort Order ถ้าต้องการเรียงแบบ DESC ให้ใส่ - หน้า value เช่น value="-name" เป็นต้น</p>
+</div>
 </div>
 </div>
 </body>
