@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Angular JS</title>
+<script src="js/angular.min.js"></script>
+<link rel="stylesheet" href="bootstrap337/css/bootstrap.min.css">
+</head>
+<body>
+<div class="contrainer">
+<div ng-app="" ng-init="price=100;qty=5">
+<h1>Test Angular JS</h1>
+ <input type="number" class="form-control" ng-model="price" placeholder="Price">
+ <input type="number" class="form-control" ng-model="qty" placeholder="Qty">
+ 
+ <h2>Total Price:{{price*qty}}</h2>
+<h2>Test:{{5+4}}</h2>
+</div>
+</div>
+</body>
+</html>
