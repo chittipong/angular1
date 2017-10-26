@@ -7,18 +7,34 @@
 </head>
 <body>
 <div class="contrainer">
-<div ng-app="" ng-init="price=100;qty=5;names=['name 01','name 02','name 03']">
+<div ng-app="" ng-init="price=100;qty=5;namesArr=['name 01','name 02','name 03'];namesObj=[
+    {'name':'Chittipong','country':'Thailand','salary':450000},
+    {'name':'Adisorn','country':'USA','salary':34000},
+    {'name':'Manit','country':'Thailand','salary':24000},
+    {'name':'Sirisak','country':'UAE','salary':28000}
+]">
 <h1>Test Angular JS</h1>
  <input type="number" class="form-control" ng-model="price" placeholder="Price">
  <input type="number" class="form-control" ng-model="qty" placeholder="Qty">
  
- <h2>Total Price:{{price*qty}}</h2>
-<h2>Test:{{5+4}}</h2>
+ <h3>1.Bliding Data</h3>
+ <h4>Total Price:{{price*qty}}</h4>
+<h4Test:{{5+4}}</h4>
 
-<ul class="list-group" ng-repeat="n in names">
+<h3>2.Looping Data Array (ng-repeat)</h3>
+<ul class="list-group" ng-repeat="n in namesArr">
     <li class="list-group-item">{{n}}</li>
 </ul>
-</ul>
+
+<h3>3.Looping Data in Object Array (ng-repeat) and Fiter</h3>
+<input type="text" class="form-control" ng-model="queryString" placeholder="Fiter by">
+<table class="table">
+    <tr ng-repeat="n in namesObj | filter:queryString">
+        <td>{{n.name}}</td>
+        <td>{{n.country}}</td>
+        <td>{{n.salary}}</td>
+    </tr>
+</table>
 </div>
 </div>
 </body>
