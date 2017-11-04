@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Angular JS</title>
+<script src="js/angular.min.js"></script>
+<link rel="stylesheet" href="bootstrap337/css/bootstrap.min.css">
+</head>
+<body ng-app ng-init="price=100;qty=20">
+<div class="container">
+<div class="content">
+<h2>Angular Expression</h2>
+total Price:{{price*qty | currency:'THB '}}
+
+</div>
+</div>
+</body>
+</html>
